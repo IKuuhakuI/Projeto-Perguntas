@@ -5,9 +5,17 @@ main() {
 }
 
 class PerguntaApp extends StatelessWidget {
+  String? name;
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Olá Flutter!!!'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Perguntas'),
+        ),
+        body: const Text('Olá Flutter!!!'),
+      ),
     );
   }
 }
