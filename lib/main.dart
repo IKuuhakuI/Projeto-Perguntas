@@ -5,16 +5,39 @@ main() {
 }
 
 class PerguntaApp extends StatelessWidget {
-  String? name;
+  void responder() {
+    print('pergunta respondida');
+  }
 
   @override
   Widget build(BuildContext context) {
+    final List<String> perguntas = [
+      'Qual a sua cor favorita?',
+      'Qual é o seu animal favorito',
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
-        body: const Text('Olá Flutter!!!'),
+        body: Column(
+          children: <Widget>[
+            Text(perguntas[0]),
+            ElevatedButton(
+              onPressed: responder,
+              child: const Text('Resposta 1'),
+            ),
+            ElevatedButton(
+              onPressed: () => print('Resposta 2'),
+              child: const Text('Resposta 2'),
+            ),
+            ElevatedButton(
+              onPressed: responder,
+              child: const Text('Resposta 3'),
+            ),
+          ],
+        ),
       ),
     );
   }
