@@ -8,32 +8,34 @@ main() {
 
 class _PerguntaAppState extends State<_PerguntaApp> {
   int _perguntaSelecionada = 0;
+  int _pontoTotal = 0;
+
   final List<Map<String, Object>> _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Preto', 'nota': 10},
-        {'texto': 'Vermelho', 'nota': 5},
-        {'texto': 'Verde', 'nota': 3},
-        {'texto': 'Branco', 'nota': 1}
+        {'texto': 'Preto', 'ponto': 10},
+        {'texto': 'Vermelho', 'ponto': 5},
+        {'texto': 'Verde', 'ponto': 3},
+        {'texto': 'Branco', 'ponto': 1}
       ],
     },
     {
       'texto': 'Qual o seu animal favorito?',
       'respostas': [
-        {'texto': 'Coelho', 'nota': 10},
-        {'texto': 'Cobra', 'nota': 5},
-        {'texto': 'Elefante', 'nota': 3},
-        {'texto': 'Leão', 'nota': 1},
+        {'texto': 'Coelho', 'ponto': 10},
+        {'texto': 'Cobra', 'ponto': 5},
+        {'texto': 'Elefante', 'ponto': 3},
+        {'texto': 'Leão', 'ponto': 1},
       ],
     },
     {
       'texto': 'Qual o seu instrutor favorito?',
       'respostas': [
-        {'texto': 'Maria', 'nota': 10},
-        {'texto': 'João', 'nota': 5},
-        {'texto': 'Leo', 'nota': 3},
-        {'texto': 'Pedro', 'nota': 1},
+        {'texto': 'Maria', 'ponto': 10},
+        {'texto': 'João', 'ponto': 5},
+        {'texto': 'Leo', 'ponto': 3},
+        {'texto': 'Pedro', 'ponto': 1},
       ],
     },
   ];
@@ -42,12 +44,15 @@ class _PerguntaAppState extends State<_PerguntaApp> {
     return _perguntaSelecionada < _perguntas.length;
   }
 
-  void _responder() {
+  void _responder(int ponto) {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
+        _pontoTotal += ponto;
       });
     }
+
+    print(_pontoTotal);
   }
 
   @override
