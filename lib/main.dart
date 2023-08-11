@@ -51,8 +51,6 @@ class _PerguntaAppState extends State<_PerguntaApp> {
         _pontoTotal += ponto;
       });
     }
-
-    print(_pontoTotal);
   }
 
   @override
@@ -69,7 +67,7 @@ class _PerguntaAppState extends State<_PerguntaApp> {
                 responder: _responder,
                 temPerguntaSelecionada: temPerguntaSelecionada,
               )
-            : const Resultado(),
+            : Resultado(_pontoTotal),
       ),
     );
   }
