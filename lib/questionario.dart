@@ -18,14 +18,17 @@ class Questionario extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
-        ? perguntas[perguntaSelecionada]['respostas'] as List<String>
+    List<Map<String, Object>> respostas = temPerguntaSelecionada
+        ? perguntas[perguntaSelecionada]['respostas']
+            as List<Map<String, Object>>
         : [];
 
     return Column(
       children: <Widget>[
         Questao(perguntas[perguntaSelecionada]['texto'] as String),
-        ...respostas.map((texto) => Resposta(texto, responder)).toList(),
+        ...respostas
+            .map((resposta) => Resposta(resposta['texto'] as String, responder))
+            .toList(),
       ],
     );
   }
